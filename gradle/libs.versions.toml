@@ -1,0 +1,34 @@
+[versions]
+kotlin = "2.0.21"
+agp = "9.0.0"
+junit = "4.13.2"
+koin = "3.5.0"
+koin-android = "3.5.0"
+koin-android-compose = "3.5.0"
+kotlinx-coroutines = "1.8.0"  # ← добавляем версию для корутин
+
+[libraries]
+# Android
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.12.0" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# Koin Core
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+
+# Koin Android
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin-android" }
+koin-android-compose = { group = "io.insert-koin", name = "koin-android-compose", version.ref = "koin-android-compose" }
+
+# Koin Test
+koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
+koin-junit4 = { group = "io.insert-koin", name = "koin-junit4", version.ref = "koin" }
+
+# Kotlin Coroutines - ПРАВИЛЬНАЯ НОТАЦИЯ
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
