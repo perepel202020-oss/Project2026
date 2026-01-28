@@ -1,18 +1,12 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
@@ -22,9 +16,9 @@ dependencyResolutionManagement {
 rootProject.name = "Project2026"
 include(":app")
 include(":core")
-include(":core-ui")
 include(":domain")
 include(":data")
+include(":core-ui")
 include(":feature-rules")
 include(":feature-tracking")
 include(":feature-statistics")

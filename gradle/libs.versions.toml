@@ -1,34 +1,27 @@
 [versions]
-kotlin = "2.0.21"
+kotlin = "2.3.0"
 agp = "9.0.0"
 junit = "4.13.2"
-koin = "3.5.0"
-koin-android = "3.5.0"
-koin-android-compose = "3.5.0"
-kotlinx-coroutines = "1.8.0"  # ← добавляем версию для корутин
+koin-bom = "4.1.1"  # ⬅️ НОВОЕ: BOM для управления версиями Koin
+kotlinx-coroutines = "1.8.1"
 
 [libraries]
-# Android
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.12.0" }
-
-# Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
-# Koin Core
-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+# ⬇️ НОВЫЕ ЗАВИСИМОСТИ KOIN (с использованием BOM) ⬇️
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }  # ⬅️ БЕЗ version.ref
+koin-android = { module = "io.insert-koin:koin-android" }  # ⬅️ БЕЗ version.ref
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }  # ⬅️ БЕЗ version.ref
+koin-test = { module = "io.insert-koin:koin-test" }  # ⬅️ БЕЗ version.ref
+koin-junit4 = { module = "io.insert-koin:koin-junit4" }  # ⬅️ БЕЗ version.ref
 
-# Koin Android
-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin-android" }
-koin-android-compose = { group = "io.insert-koin", name = "koin-android-compose", version.ref = "koin-android-compose" }
-
-# Koin Test
-koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
-koin-junit4 = { group = "io.insert-koin", name = "koin-junit4", version.ref = "koin" }
-
-# Kotlin Coroutines - ПРАВИЛЬНАЯ НОТАЦИЯ
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

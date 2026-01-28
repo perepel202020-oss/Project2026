@@ -10,10 +10,15 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
-    implementation(project(":core"))
     implementation(kotlin("stdlib"))
-    implementation(project(":core"))
-    implementation(libs.koin.core)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    
+    // �������� libs.koin.core �� ����� �����������, ���� ��� libs.versions.toml
+    // implementation(libs.koin.core)
+    implementation("io.insert-koin:koin-core:3.5.0")
 }

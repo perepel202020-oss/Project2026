@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm")
+    alias(libs.plugins.kotlin.jvm)
 }
 
 group = "com.perepel.core"
@@ -10,8 +10,14 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
-    implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    // Добавляем BOM Koin для управления версиями
+    implementation(platform(libs.koin.bom))
+
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.koin.core)
 }
