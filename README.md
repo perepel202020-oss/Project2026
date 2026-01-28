@@ -1,160 +1,98 @@
-# 🚀 Project 2026 - Modular Android Architecture
+# 🚀 Project 2026 - Habit Tracker (Base Version)
 
 ![Android](https://img.shields.io/badge/Android-100%25-green)
 ![Kotlin](https://img.shields.io/badge/Kotlin-100%25-blueviolet)
-![Architecture](https://img.shields.io/badge/Clean_Architecture-✅-orange)
-![Koin](https://img.shields.io/badge/Koin_DI-3.5.0-yellow)
+![Koin](https://img.shields.io/badge/Koin_DI-4.1.1-yellow)
+![Compose](https://img.shields.io/badge/Jetpack_Compose-✅-orange)
+![Status](https://img.shields.io/badge/Status-Working_Base-brightgreen)
 
-Professional modular architecture Android application for habit tracking.
+Professional modular architecture Android application for habit tracking. **Base working version installed on device**.
 
-## 📱 Features
+## 📱 Current Status
 
-### ✅ 5 Working Features:
+### ✅ **Working Base Version**
+- **App builds successfully** and installs on physical device
+- **Modular architecture** with 6 feature modules ready
+- **Koin 4.1.1** with BOM for dependency management
+- **Compose** with Kotlin 2.0+ support
+- **compileSdk 35**, targetSdk 35
+
+### 🎯 **Next Features to Implement**
 1. **📋 Rules Management** - 7 daily habits, tracking, completion
 2. **📅 Calendar Tracking** - 365-day visual progress
 3. **📊 Statistics & Analytics** - Charts, percentages, recommendations
 4. **🔔 Notifications** - Motivational reminders, scheduler
-5. **⚙️ App Settings** - Dark/Light theme
+5. **⚙️ App Settings** - Minimalist design (black/white/red)
 
-### 🏗️ Architecture (10 Modules):
-Структура проекта Project-2026
+## 🏗️ Project Structure
+Project2026/
+├── :app/ # Main application module
+├── :core/ # Utilities, extensions
+├── :core-ui/ # UI components, theme
+├── :domain/ # Business logic, use cases
+├── :data/ # Repositories, database (to be implemented)
+└── :feature-*/ # Screen modules (5 total)
+├── rules/ # Rules list and management
+├── tracking/ # Daily habit tracking
+├── statistics/ # Statistics and charts
+├── notifications/ # Push notifications
+└── settings/ # App settings
+
 text
-project-2026/
-├── :app                   # Точка входа + Koin DI
-├── :core                  # Утилиты и общие функции
-├── :core-ui               # UI компоненты
-├── :domain                # Бизнес-логика
-├── :data                  # Слой данных
-├── :feature-rules         # Управление правилами
-├── :feature-tracking      # Ежедневное отслеживание
-├── :feature-statistics    # Аналитика
-├── :feature-notifications # Уведомления
-└── :feature-settings      # Настройки темы
-Описание модулей
-:app
-Точка входа приложения
-
-Настройка DI через Koin
-
-Конфигурация приложения
-
-Главная активность/композабл
-
-:core
-Общие утилиты и хелперы
-
-Расширения (extensions)
-
-Константы
-
-Общие модели данных
-
-:core-ui
-Переиспользуемые UI компоненты
-
-Тема приложения
-
-Стили и ресурсы
-
-Кастомные View/Composables
-
-:domain
-Бизнес-логика приложения
-
-Use cases (интеракторы)
-
-Репозитории (интерфейсы)
-
-Доменные модели
-
-:data
-Слой данных
-
-Реализация репозиториев
-
-Локальная БД (Room)
-
-Удаленные источники (Retrofit)
-
-Data mappers
-
-:feature-rules
-Управление правилами
-
-Создание/редактирование правил
-
-Хранение и валидация правил
-
-:feature-tracking
-Ежедневное отслеживание
-
-Запись и мониторинг данных
-
-История трекинга
-
-:feature-statistics
-Аналитика и статистика
-
-Графики и отчеты
-
-Визуализация данных
-
-:feature-notifications
-Система уведомлений
-
-Напоминания
-
-Планировщик уведомлений
-
-:feature-settings
-Настройки приложения
-
-Управление темой (темная/светлая)
-
-Настройки пользователя
-
-Конфигурация приложения
-
-Зависимости между модулями
-text
-:app → (:core, :core-ui, все feature-модули)
-feature-модули → (:domain, :core, :core-ui)
-:domain → (:core)
-:data → (:core, :domain)
-:core-ui → (:core)
-Такая модульная структура обеспечивает:
-
-Чистую архитектуру
-
-Разделение ответственности
-
-Повторное использование кода
-
-Упрощенное тестирование
-
-Масштабируемость
 
 ## 🛠️ Technology Stack
 
 - **Language:** 100% Kotlin
-- **Architecture:** Clean Architecture + MVVM
-- **DI:** Koin (8 modules)
-- **Async:** Coroutines + StateFlow
-- **Modularity:** 10 independent modules
-- **Testing:** Ready for unit/integration tests
+- **Architecture:** Modular Clean Architecture
+- **DI:** Koin 4.1.1 (with BOM)
+- **UI:** Jetpack Compose
+- **Async:** Kotlin Coroutines
+- **Build:** Gradle with version catalog (libs.versions.toml)
 
-## 🚀 Quick Start
+## 🚀 How to Build
 
-### Prerequisites:
-- Android Studio Giraffe/2022+
-- JDK 17+
-- Git
-
-### Steps:
 ```bash
-# 1. Clone repository
+# Clone the repository
 git clone https://github.com/perepel202020-oss/Project2026.git
 
-# 2. Open in Android Studio
-# 3. Wait for Gradle sync
-# 4. Run Main.kt: app/src/main/kotlin/com/perepel/app/Main.kt
+# Build the app
+cd Project2026
+./gradlew :app:assembleDebug
+
+# Run on device/emulator
+./gradlew :app:installDebug
+📦 Dependencies
+Managed via gradle/libs.versions.toml:
+
+Koin 4.1.1 (DI)
+
+Kotlin 2.3.0
+
+Compose BOM 2023.10.01
+
+Android Gradle Plugin 9.0.0
+
+📄 Recent Changes
+Latest Commit: Added modular architecture with working base
+
+Fixed Koin version from 3.6.0 → 4.1.1 (BOM approach)
+
+Updated compileSdk to 35
+
+Added compose-compiler plugin for Kotlin 2.0+
+
+Created 5 feature modules ready for implementation
+
+App successfully builds and installs on device
+
+🏁 Next Steps
+Implement Room Database in :data module
+
+Create Rule entity and repository
+
+Build Rules screen UI in :feature-rules
+
+Add daily tracking calendar in :feature-tracking
+
+📞 Contact
+Project: https://github.com/perepel202020-oss/Project2026
