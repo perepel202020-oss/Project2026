@@ -1,0 +1,153 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Files for the Android Studio IDE
+.idea/
+*.iml
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+*.orig
+*.swp
+*.swo
+*~
+
+# Gradle specific
+.gradle/
+gradle-app.setting
+
+# Avoid committing Gradle wrapper jar file
+!gradle/wrapper/gradle-wrapper.jar
+
+# Avoid committing Gradle wrapper properties file
+!gradle/wrapper/gradle-wrapper.properties
+
+# Cache and logs
+.cache/
+*.log
+log/
+
+# Android studio navigation editor temp files
+.navigation/
+
+# Android Studio captures folder
+captures/
+
+# IntelliJ
+out/
+
+# mp3, wav, ogg and other audio files
+*.mp3
+*.wav
+*.ogg
+
+# video files
+*.mp4
+*.mov
+*.avi
+
+# image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.webp
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g., APIs or Firebase)
+google-services.json
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# KSP generated files (for Room)
+**/build/generated/ksp/
+
+# Configuration cache (Gradle 8.1+)
+.gradle/configuration-cache/
+
+# Build outputs (intermediate and final)
+**/build/intermediates/
+**/build/outputs/
+**/build/tmp/
+**/build/*.apk
+**/build/*.aab
+
+# Room schemas (optional - if you want to commit them, remove this line)
+**/schemas/
+
+# Kotlin coroutines debug
+coroutines_debug_*.jar
+
+# Firebase
+**/fabric.properties
+
+# Crashlytics
+**/crashlytics-build.properties
+**/com_crashlytics_export_strings.xml
+
+# Annotation Processing
+**/build/generated/ap_generated_sources/
+**/build/generated/source/apt/
+
+# KAPT (if you use it alongside KSP)
+**/build/generated/source/kapt/
+
+# Navigation Safe Args
+**/build/generated/source/navigation-args/
+
+# Data Binding
+**/build/generated/source/dataBinding/
+
+# View Binding
+**/build/generated/view_binding/
+
+# Compose reports (optional)
+**/build/compose_metrics/
+**/build/compose_reports/
+
+# Module-specific build directories
+app/build/
+core/build/
+data/build/
+domain/build/
+core-ui/build/
+feature-rules/build/
+feature-tracking/build/
+feature-statistics/build/
+feature-notifications/build/
+feature-settings/build/
+
+# Android Profiler
+*.hprof
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+*.iws
+*.ipr
+*.ids
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+tmp/
+temp/
