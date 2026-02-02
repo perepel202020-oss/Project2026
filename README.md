@@ -1,98 +1,134 @@
-# 🚀 Project 2026 - Habit Tracker (Base Version)
+# Project2026 - Трекер привычек (Habit Tracker)
 
-![Android](https://img.shields.io/badge/Android-100%25-green)
-![Kotlin](https://img.shields.io/badge/Kotlin-100%25-blueviolet)
-![Koin](https://img.shields.io/badge/Koin_DI-4.1.1-yellow)
-![Compose](https://img.shields.io/badge/Jetpack_Compose-✅-orange)
-![Status](https://img.shields.io/badge/Status-Working_Base-brightgreen)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-purple.svg)](https://kotlinlang.org)
+[![AGP](https://img.shields.io/badge/AGP-9.0.0-green.svg)](https://developer.android.com/studio/releases/gradle-plugin)
+[![Compose](https://img.shields.io/badge/Compose-1.6.3-blue.svg)](https://developer.android.com/jetpack/compose)
+[![Room](https://img.shields.io/badge/Room-2.8.4-orange.svg)](https://developer.android.com/training/data-storage/room)
 
-Professional modular architecture Android application for habit tracking. **Base working version installed on device**.
+Современное Android-приложение для отслеживания привычек, построенное на модульной архитектуре с использованием актуального стека технологий.
 
-## 📱 Current Status
+## 📱 Функциональность
 
-### ✅ **Working Base Version**
-- **App builds successfully** and installs on physical device
-- **Modular architecture** with 6 feature modules ready
-- **Koin 4.1.1** with BOM for dependency management
-- **Compose** with Kotlin 2.0+ support
-- **compileSdk 35**, targetSdk 35
+- **Создание и управление привычками** с настраиваемыми целями и периодами
+- **Визуальное отслеживание прогресса** с помощью календаря и графиков
+- **Гибкие уведомления** для поддержания мотивации
+- **Подробная статистика** по выполнению привычек
+- **Настройка внешнего вида** (темы, цвета)
 
-### 🎯 **Next Features to Implement**
-1. **📋 Rules Management** - 7 daily habits, tracking, completion
-2. **📅 Calendar Tracking** - 365-day visual progress
-3. **📊 Statistics & Analytics** - Charts, percentages, recommendations
-4. **🔔 Notifications** - Motivational reminders, scheduler
-5. **⚙️ App Settings** - Minimalist design (black/white/red)
+## 🏗️ Архитектура
 
-## 🏗️ Project Structure
-Project2026/
-├── :app/ # Main application module
-├── :core/ # Utilities, extensions
-├── :core-ui/ # UI components, theme
-├── :domain/ # Business logic, use cases
-├── :data/ # Repositories, database (to be implemented)
-└── :feature-*/ # Screen modules (5 total)
-├── rules/ # Rules list and management
-├── tracking/ # Daily habit tracking
-├── statistics/ # Statistics and charts
-├── notifications/ # Push notifications
-└── settings/ # App settings
+Проект построен по принципам **чистой архитектуры** с разделением на модули:
+:app - Точка входа приложения
+:core - Общие утилиты и extensions
+:core-ui - Общие UI-компоненты и темы Compose
+:domain - Бизнес-логика, use cases, репозитории
+:data - Локальное хранение (Room), мапперы, репозитории
+:feature-* - Изолированные feature-модули (tracking, statistics, rules, notifications, settings)
 
 text
 
-## 🛠️ Technology Stack
+## 🛠️ Технологический стек
 
-- **Language:** 100% Kotlin
-- **Architecture:** Modular Clean Architecture
-- **DI:** Koin 4.1.1 (with BOM)
-- **UI:** Jetpack Compose
-- **Async:** Kotlin Coroutines
-- **Build:** Gradle with version catalog (libs.versions.toml)
+- **Язык**: Kotlin 2.3.0
+- **UI**: Jetpack Compose с Material 3
+- **Архитектура**: MVVM с ViewModel, StateFlow
+- **Локальная БД**: Room с KSP (Kotlin Symbol Processing)
+- **DI**: Koin
+- **Асинхронность**: Kotlin Coroutines, Flow
+- **Сборка**: Gradle Kotlin DSL, Version Catalogs
+- **Модульность**: Полностью модульная структура
 
-## 🚀 How to Build
+## 📦 Начало работы
 
+### Предварительные требования
+
+- Android Studio Giraffe (2022.3.1) или выше
+- JDK 17
+- Android SDK 34+
+
+### Установка и сборка
+
+1. Клонируйте репозиторий:
 ```bash
-# Clone the repository
 git clone https://github.com/perepel202020-oss/Project2026.git
+Откройте проект в Android Studio
 
-# Build the app
-cd Project2026
-./gradlew :app:assembleDebug
+Дождитесь завершения первоначальной синхронизации Gradle
 
-# Run on device/emulator
-./gradlew :app:installDebug
-📦 Dependencies
-Managed via gradle/libs.versions.toml:
+Соберите проект:
 
-Koin 4.1.1 (DI)
+bash
+./gradlew build
+Конфигурация сборки
+Проект использует современный подход к управлению зависимостями:
 
-Kotlin 2.3.0
+Gradle Version Catalogs (gradle/libs.versions.toml) - централизованное управление версиями
 
-Compose BOM 2023.10.01
+KSP вместо kapt - для обработки аннотаций Room
 
-Android Gradle Plugin 9.0.0
+Compose Compiler - отдельный плагин для Kotlin 2.0+
 
-📄 Recent Changes
-Latest Commit: Added modular architecture with working base
+🗄️ База данных
+Проект использует Room для локального хранения данных. Основные сущности:
 
-Fixed Koin version from 3.6.0 → 4.1.1 (BOM approach)
+HabitEntity - информация о привычке
 
-Updated compileSdk to 35
+HabitCompletionEntity - история выполнения привычек
 
-Added compose-compiler plugin for Kotlin 2.0+
+Миграции БД настроены автоматически. Схемы сохраняются в папке schemas/.
 
-Created 5 feature modules ready for implementation
+📁 Структура проекта
+text
+Project2026/
+├── app/                    # Главный модуль приложения
+├── core/                  # Общие утилиты, extensions
+├── core-ui/               # Общие UI-компоненты Compose
+├── domain/                # Бизнес-логика и use cases
+├── data/                  # Локальное хранилище (Room)
+└── feature-*/             # Feature-модули
+    ├── tracking/         # Отслеживание привычек
+    ├── statistics/       # Статистика и аналитика
+    ├── rules/           # Управление правилами
+    ├── notifications/   # Уведомления
+    └── settings/        # Настройки приложения
+🔧 Основные зависимости
+AndroidX: Compose BOM, Navigation, Lifecycle, Room
 
-App successfully builds and installs on device
+Koin: Dependency Injection
 
-🏁 Next Steps
-Implement Room Database in :data module
+Kotlinx: Coroutines, Serialization
 
-Create Rule entity and repository
+GSON: Для конвертеров Room
 
-Build Rules screen UI in :feature-rules
+Полный список зависимостей в libs.versions.toml
 
-Add daily tracking calendar in :feature-tracking
+🧪 Тестирование
+Каждый модуль содержит тесты:
 
-📞 Contact
-Project: https://github.com/perepel202020-oss/Project2026
+Unit tests - бизнес-логика и репозитории
+
+Instrumented tests - работа с базой данных и UI
+
+Запуск тестов:
+
+bash
+./gradlew test          # Unit тесты
+./gradlew connectedTest # Инструментальные тесты
+🤝 Вклад в проект
+Форкните репозиторий
+
+Создайте ветку для вашего изменения
+
+Внесите изменения и добавьте тесты
+
+Убедитесь, что сборка проходит
+
+Создайте Pull Request
+
+📄 Лицензия
+Проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
+
+📞 Контакты
+По вопросам сотрудничества или предложениям:
+
+GitHub: @perepel202020-oss
